@@ -56,7 +56,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, isPortrait = false }) => {
             <div className="absolute bottom-0 left-0 right-0 p-3">
                  <h4 className="text-white font-bold text-sm truncate">{movie.title}</h4>
                  <div className="flex items-center gap-2 text-[10px] text-gray-300 mt-1">
-                     <span className="text-blue-400">{movie.channelName}</span>
+                     <span className="text-red-500 font-semibold">{movie.channelName}</span>
                      {movie.views && <span>• {movie.views}</span>}
                  </div>
             </div>
@@ -64,7 +64,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, isPortrait = false }) => {
 
         {/* Hover Pop-out Card (Standard Video Only) */}
         {isHovered && !isPortrait && (
-            <div className="absolute top-[-50%] left-[-10%] w-[120%] bg-[#1a1a1a] rounded-lg shadow-2xl overflow-hidden scale-100 animate-in fade-in duration-300 origin-center ring-1 ring-white/10 z-50">
+            <div className="absolute top-[-50%] left-[-10%] w-[120%] bg-[#141414] rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.8)] overflow-hidden scale-100 animate-in fade-in duration-300 origin-center ring-1 ring-white/10 z-50 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                 
                 {/* Image Section */}
                 <div className="relative aspect-video w-full">
@@ -74,30 +74,30 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, isPortrait = false }) => {
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                        <Link to={`/watch/${movie.id}`} className="bg-red-600/90 rounded-full p-3 shadow-lg transform hover:scale-110 transition-transform">
+                        <Link to={`/watch/${movie.id}`} className="bg-red-600 rounded-full p-3 shadow-lg transform hover:scale-110 transition-transform">
                             <Play fill="white" size={20} className="ml-1 text-white" />
                         </Link>
                     </div>
                 </div>
 
                 {/* Info Section */}
-                <div className="p-4 flex flex-col justify-between bg-[#1a1a1a]">
+                <div className="p-4 flex flex-col justify-between bg-[#141414]">
                     <div className="flex items-center justify-between mb-3">
                          <div className="flex gap-2">
-                             <button className="w-8 h-8 rounded-full border border-gray-600 hover:border-white text-gray-300 hover:text-white flex items-center justify-center transition-all bg-[#252a33]">
+                             <button className="w-8 h-8 rounded-full border border-gray-600 hover:border-red-500 text-gray-300 hover:text-red-500 flex items-center justify-center transition-all bg-[#1a1a1a]">
                                 <Plus size={16} />
                              </button>
-                             <button className="w-8 h-8 rounded-full border border-gray-600 hover:border-white text-gray-300 hover:text-white flex items-center justify-center transition-all bg-[#252a33]">
+                             <button className="w-8 h-8 rounded-full border border-gray-600 hover:border-red-500 text-gray-300 hover:text-red-500 flex items-center justify-center transition-all bg-[#1a1a1a]">
                                 <ThumbsUp size={14} />
                              </button>
                          </div>
-                         <div className="text-xs text-green-500 font-bold">98% Recommended</div>
+                         <div className="text-xs text-red-500 font-bold border border-red-500/30 px-2 py-0.5 rounded">Trending</div>
                     </div>
 
                     <div>
                         <h3 className="font-bold text-white text-sm mb-1 line-clamp-1">{movie.title}</h3>
                         <div className="flex items-center gap-2 text-[10px] text-gray-400 font-medium mb-2">
-                            <span className="text-blue-400 font-semibold">{movie.channelName}</span>
+                            <span className="text-white font-semibold">{movie.channelName}</span>
                             <span>•</span>
                             <span>{movie.duration}</span>
                         </div>

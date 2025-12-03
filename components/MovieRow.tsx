@@ -24,9 +24,9 @@ const MovieRow: React.FC<MovieRowProps> = ({ category }) => {
 
   return (
     <div className="py-2 pl-4 md:pl-12 relative group">
-      <h3 className="text-lg md:text-xl font-bold text-white mb-3 hover:text-blue-400 cursor-pointer transition-colors inline-flex items-center gap-2 group/title">
+      <h3 className="text-lg md:text-xl font-bold text-white mb-3 hover:text-red-500 cursor-pointer transition-colors inline-flex items-center gap-2 group/title">
         {category.title}
-        <div className="opacity-0 group-hover/title:opacity-100 transition-all transform -translate-x-2 group-hover/title:translate-x-0 text-xs text-blue-400 font-semibold uppercase tracking-wider">Explore All</div>
+        <div className="opacity-0 group-hover/title:opacity-100 transition-all transform -translate-x-2 group-hover/title:translate-x-0 text-xs text-red-500 font-semibold uppercase tracking-wider">Explore All</div>
       </h3>
       
       <div className="relative">

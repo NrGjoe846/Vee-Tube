@@ -25,10 +25,10 @@ const ReelRow: React.FC<ReelRowProps> = ({ category }) => {
   return (
     <div className="py-8 pl-4 md:pl-8 relative group">
       <div className="flex items-center gap-2 mb-4">
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-1.5 rounded-lg">
+        <div className="bg-gradient-to-r from-red-600 to-red-800 p-1.5 rounded-lg">
             <Smartphone size={16} className="text-white" />
         </div>
-        <h3 className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 cursor-pointer transition-colors group/title">
+        <h3 className="text-xl md:text-2xl font-bold text-white hover:text-red-500 cursor-pointer transition-colors group/title">
             {category.title}
         </h3>
       </div>

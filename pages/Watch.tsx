@@ -65,11 +65,11 @@ const Watch: React.FC = () => {
     <div className="min-h-screen bg-[#0f1014] relative overflow-x-hidden">
       <Navbar />
       
-      {/* Ambient Animated Background Glow */}
+      {/* Ambient Animated Background Glow - Red and White */}
       <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-[#0a0a0a] to-red-950/20 animate-political-gradient opacity-70"></div>
-          <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[80%] bg-blue-900/10 rounded-full blur-[150px] animate-pulse"></div>
-          <div className="absolute top-[20%] right-[-10%] w-[60%] h-[60%] bg-red-900/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-red-950/30 animate-pulse opacity-70"></div>
+          <div className="absolute top-[-20%] left-[-10%] w-[80%] h-[80%] bg-white/5 rounded-full blur-[150px] animate-pulse"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-red-900/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Video Player Section - Full width top placement */}
@@ -97,13 +97,13 @@ const Watch: React.FC = () => {
                     <div className="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider shadow-lg shadow-red-600/20">
                         {movie.type}
                     </div>
-                    {movie.isOriginal && <span className="text-xs font-bold tracking-widest text-blue-400 uppercase">Yutify Original</span>}
+                    {movie.isOriginal && <span className="text-xs font-bold tracking-widest text-white uppercase bg-white/20 px-2 py-0.5 rounded">Medai Original</span>}
                 </div>
                 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[0.9] drop-shadow-2xl">{movie.title}</h1>
                 
                 <div className="flex flex-wrap items-center gap-4 text-gray-300 text-sm md:text-base mb-8 font-medium">
-                    <div className="flex items-center text-green-400 gap-1 drop-shadow-lg bg-green-500/10 px-2 py-1 rounded border border-green-500/20">
+                    <div className="flex items-center text-red-400 gap-1 drop-shadow-lg bg-red-500/10 px-2 py-1 rounded border border-red-500/20">
                         <Star fill="currentColor" size={14} />
                         <span className="font-bold">9.8</span>
                     </div>
@@ -121,7 +121,7 @@ const Watch: React.FC = () => {
                         <span className="text-lg">Resume</span>
                     </button>
                     <button className="group flex items-center gap-2 glass-panel text-white px-6 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all hover:scale-105 border border-white/10 hover:border-white/30 ease-spring duration-300">
-                        <Plus size={22} className="group-hover:text-blue-400 transition-colors" /> <span className="hidden md:inline">Watchlist</span>
+                        <Plus size={22} className="group-hover:text-red-500 transition-colors" /> <span className="hidden md:inline">Watchlist</span>
                     </button>
                     <button className="group flex items-center gap-2 glass-panel text-white px-6 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all hover:scale-105 border border-white/10 hover:border-white/30 ease-spring duration-300">
                         <ThumbsUp size={22} className="group-hover:text-red-500 transition-colors" /> <span className="hidden md:inline">Like</span>
@@ -131,12 +131,12 @@ const Watch: React.FC = () => {
                     </button>
                 </div>
 
-                {/* AI Insight Block */}
-                <div className="relative overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 to-black/40 p-8 mb-10 group hover:border-blue-500/50 transition-colors shadow-2xl backdrop-blur-md">
-                    <div className="absolute inset-0 bg-blue-500/5 animate-pulse"></div>
+                {/* AI Insight Block - Red Theme */}
+                <div className="relative overflow-hidden rounded-2xl border border-red-500/30 bg-gradient-to-r from-red-950/20 to-black/40 p-8 mb-10 group hover:border-red-500/50 transition-colors shadow-2xl backdrop-blur-md">
+                    <div className="absolute inset-0 bg-red-500/5 animate-pulse"></div>
                     {generatingAi && <div className="absolute inset-0 animate-shimmer opacity-10 z-0"></div>}
                     <div className="relative z-10">
-                        <div className="flex items-center gap-2 text-blue-400 font-bold mb-4">
+                        <div className="flex items-center gap-2 text-red-400 font-bold mb-4">
                             <Sparkles size={18} className="animate-pulse" />
                             <span className="text-sm uppercase tracking-wider glow-text">Gemini AI Insight</span>
                         </div>
@@ -161,7 +161,7 @@ const Watch: React.FC = () => {
             <div className="lg:col-span-1 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <div className="glass-panel rounded-2xl p-6 sticky top-24 shadow-2xl border-t border-white/10">
                     <h3 className="text-white font-bold mb-6 flex items-center gap-3 text-lg">
-                        <div className="p-2 bg-green-500/20 rounded-full text-green-400 ring-1 ring-green-500/50">
+                        <div className="p-2 bg-red-500/20 rounded-full text-red-400 ring-1 ring-red-500/50">
                              <MessageCircle size={20} />
                         </div>
                         AI Suggestions
@@ -171,7 +171,7 @@ const Watch: React.FC = () => {
                              [1,2,3].map(i => <div key={i} className="h-8 w-24 skeleton-shimmer rounded-full"></div>)
                         ) : (
                              recommendations.map((rec, idx) => (
-                                <span key={idx} className="px-4 py-2 bg-blue-500/10 text-blue-300 text-sm font-medium rounded-full border border-blue-500/20 hover:bg-blue-500/20 hover:border-blue-500/50 transition-colors cursor-default hover-glow shadow-sm">
+                                <span key={idx} className="px-4 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-red-600 hover:border-red-600 transition-colors cursor-default hover-glow shadow-sm">
                                     {rec}
                                 </span>
                              ))
@@ -180,7 +180,7 @@ const Watch: React.FC = () => {
 
                     <div className="flex items-center justify-between mb-6">
                         <h4 className="text-white text-md font-bold">Up Next</h4>
-                        <span className="text-xs text-blue-400 font-semibold cursor-pointer hover:underline tracking-wider">VIEW ALL</span>
+                        <span className="text-xs text-red-400 font-semibold cursor-pointer hover:underline tracking-wider">VIEW ALL</span>
                     </div>
 
                     <div className="space-y-5">
@@ -195,7 +195,7 @@ const Watch: React.FC = () => {
                                     <div className="absolute bottom-1 right-1 bg-black/80 text-[10px] text-white px-1.5 py-0.5 rounded backdrop-blur-sm">{m.duration}</div>
                                 </div>
                                 <div className="flex-1 py-1">
-                                    <h5 className="text-gray-200 font-semibold text-sm group-hover:text-blue-400 transition-colors line-clamp-1 leading-tight">{m.title}</h5>
+                                    <h5 className="text-gray-200 font-semibold text-sm group-hover:text-red-400 transition-colors line-clamp-1 leading-tight">{m.title}</h5>
                                     <p className="text-gray-500 text-xs mt-2 line-clamp-2 leading-relaxed">{m.description}</p>
                                     <div className="flex items-center gap-2 mt-2">
                                         <span className="text-[10px] border border-gray-600 px-1 rounded text-gray-400">{m.rating}</span>

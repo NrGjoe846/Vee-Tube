@@ -48,19 +48,19 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ movies }) => {
             className={`w-full h-[120%] bg-cover bg-center transition-all duration-[1200ms] cubic-bezier(0.4, 0, 0.2, 1) ${animating ? 'opacity-0 scale-110 grayscale' : 'opacity-100 scale-100 grayscale-0'}`}
             style={{ backgroundImage: `url(${movie.coverUrl})` }}
           >
-            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
       </div>
 
-      {/* Political Gradient Overlays */}
+      {/* Red/White/Black Gradient Overlays - No Blue */}
       {/* 1. Base Darkening from bottom */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent pointer-events-none z-10"></div>
       
       {/* 2. Side Darkening for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent w-full md:w-3/4 pointer-events-none z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent w-full md:w-3/4 pointer-events-none z-10"></div>
 
-      {/* 3. Subtle Animated Tint */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-red-900/20 mix-blend-overlay pointer-events-none z-10 animate-political-gradient opacity-60"></div>
+      {/* 3. Subtle Animated Red Tint */}
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-black pointer-events-none z-10 animate-brand-gradient opacity-40"></div>
 
       {/* Content */}
       <div className={`absolute inset-0 flex flex-col justify-end md:justify-center px-6 md:px-16 pb-40 md:pb-20 z-20 max-w-6xl transition-all duration-1000 ease-out ${animating ? 'opacity-0 translate-y-8 blur-sm' : 'opacity-100 translate-y-0 blur-0'}`}>
@@ -69,9 +69,9 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ movies }) => {
                  {movie.type === 'live' && (
                      <span className="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded animate-pulse shadow-lg shadow-red-600/40">🔴 LIVE NOW</span>
                  )}
-                 <span className="text-blue-400 font-bold tracking-widest uppercase text-xs flex items-center gap-2 bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20 backdrop-blur-md">
-                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                     {movie.channelName || 'Yutify Exclusive'}
+                 <span className="text-white font-bold tracking-widest uppercase text-xs flex items-center gap-2 bg-red-600 px-3 py-1 rounded shadow-md">
+                     <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+                     {movie.channelName || 'Medai Exclusive'}
                  </span>
             </div>
 
@@ -84,7 +84,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ movies }) => {
                 <span className="text-gray-500">•</span>
                 <span className="bg-white/10 px-2 py-0.5 rounded text-xs border border-white/10">{movie.rating}</span>
                 <span className="text-gray-500">•</span>
-                <span className="text-red-400 font-semibold border border-red-500/30 bg-red-500/10 px-2 py-0.5 rounded">{movie.genre.slice(0,2).join(' | ')}</span>
+                <span className="text-red-400 font-bold border border-red-500/30 bg-red-500/10 px-2 py-0.5 rounded uppercase">{movie.genre.slice(0,2).join(' | ')}</span>
                 <span className="text-gray-500">•</span>
                 <span>{movie.duration}</span>
             </div>
@@ -96,7 +96,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ movies }) => {
             <div className="flex flex-wrap items-center gap-4">
                 <Link 
                     to={`/watch/${movie.id}`}
-                    className="flex items-center gap-3 bg-white text-black px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 hover:bg-gray-100 shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                    className="flex items-center gap-3 bg-red-600 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 hover:bg-red-700 shadow-[0_0_30px_rgba(220,38,38,0.4)]"
                 >
                     <Play size={22} fill="currentColor" />
                     <span className="text-base tracking-wide uppercase">Watch Now</span>

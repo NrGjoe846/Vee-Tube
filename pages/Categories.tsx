@@ -7,10 +7,10 @@ import { MOCK_CATEGORIES } from '../constants';
 
 const Categories: React.FC = () => {
   const catButtons = [
-    { name: 'Podcasts', icon: <Mic size={24} />, color: 'bg-purple-600', link: '#podcasts' },
-    { name: 'Interviews', icon: <Video size={24} />, color: 'bg-blue-600', link: '#interviews' },
+    { name: 'Podcasts', icon: <Mic size={24} />, color: 'bg-[#222]', link: '#podcasts' },
+    { name: 'Interviews', icon: <Video size={24} />, color: 'bg-red-900', link: '#interviews' },
     { name: 'Live News', icon: <Radio size={24} />, color: 'bg-red-600', link: '#live' },
-    { name: 'Reels', icon: <Smartphone size={24} />, color: 'bg-pink-600', link: '#reels' },
+    { name: 'Reels', icon: <Smartphone size={24} />, color: 'bg-[#333]', link: '#reels' },
   ];
 
   return (
@@ -25,10 +25,10 @@ const Categories: React.FC = () => {
             <Link 
                 key={btn.name} 
                 to={btn.link}
-                className={`group relative h-32 rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3 border border-white/10 hover:border-white/30 transition-all hover:scale-[1.02]`}
+                className={`group relative h-32 rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3 border border-white/10 hover:border-red-500 transition-all hover:scale-[1.02]`}
             >
-                <div className={`absolute inset-0 ${btn.color} opacity-20 group-hover:opacity-40 transition-opacity`}></div>
-                <div className="relative z-10 bg-white/10 p-3 rounded-full backdrop-blur-sm">
+                <div className={`absolute inset-0 ${btn.color} opacity-40 group-hover:opacity-80 transition-opacity`}></div>
+                <div className="relative z-10 bg-white/10 p-3 rounded-full backdrop-blur-sm group-hover:bg-red-600 transition-colors">
                     {btn.icon}
                 </div>
                 <span className="relative z-10 font-bold text-lg">{btn.name}</span>

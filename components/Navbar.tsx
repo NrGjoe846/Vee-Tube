@@ -30,11 +30,11 @@ const Navbar: React.FC = () => {
         {/* Left: Logo & Main Navigation */}
         <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2 group relative z-10">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-red-600 rounded-lg flex items-center justify-center transform group-hover:rotate-6 transition-transform shadow-lg shadow-blue-900/20">
-                   <span className="text-white font-black text-xl tracking-tighter">Y</span>
+                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-lg shadow-red-900/40">
+                   <span className="text-white font-black text-xl tracking-tighter">M</span>
                 </div>
-                <span className="text-2xl font-bold text-white tracking-tighter hidden md:block drop-shadow-md">
-                    Yutify
+                <span className="text-2xl font-black text-white tracking-tighter hidden md:block drop-shadow-md">
+                    MEDAI
                 </span>
             </Link>
 
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
                     <Link 
                         key={link.name} 
                         to={link.path}
-                        className={`group flex items-center gap-2 transition-all duration-300 text-sm font-medium relative px-4 py-2 rounded-full hover:bg-white/5 ${location.pathname === link.path ? 'text-white bg-white/10' : 'text-gray-400 hover:text-white'}`}
+                        className={`group flex items-center gap-2 transition-all duration-300 text-sm font-medium relative px-4 py-2 rounded-full hover:bg-white/5 ${location.pathname === link.path ? 'text-white bg-red-600/10 border border-red-600/30' : 'text-gray-400 hover:text-white'}`}
                     >
                         <span className={`transition-colors duration-300 ${location.pathname === link.path ? 'text-red-500' : 'group-hover:text-red-500'}`}>{link.icon}</span>
                         <span>{link.name}</span>
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
             {isAuthenticated ? (
                  <div className="group relative">
                     <div className="flex items-center gap-2 cursor-pointer p-1 rounded-full hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
-                         <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-700 to-red-700 flex items-center justify-center text-xs font-bold overflow-hidden ring-2 ring-transparent group-hover:ring-white/20 transition-all shadow-md">
+                         <div className="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-xs font-bold overflow-hidden ring-2 ring-transparent group-hover:ring-red-500/50 transition-all shadow-md">
                              {user?.avatar ? <img src={user.avatar} alt="User" /> : user?.name.charAt(0).toUpperCase()}
                          </div>
                     </div>
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
                         <div className="absolute -top-1 right-4 w-3 h-3 bg-[#141414] rotate-45 border-l border-t border-white/10"></div>
                         <div className="px-5 py-4 border-b border-gray-700/50 mb-2 bg-white/5">
                             <p className="text-sm text-white font-bold truncate">{user?.name}</p>
-                            <p className="text-xs text-blue-400 truncate mt-0.5">Premium Member</p>
+                            <p className="text-xs text-red-400 truncate mt-0.5">Premium Member</p>
                         </div>
                         <Link to="/" className="flex items-center gap-3 px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
                             <User size={16} /> Profile
@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
                     </div>
                  </div>
             ) : (
-                <Link to="/login" className="px-6 py-2.5 rounded-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white text-sm font-bold transition-all shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_25px_rgba(220,38,38,0.5)] transform hover:scale-105">
+                <Link to="/login" className="px-6 py-2.5 rounded-full bg-white text-red-600 hover:bg-gray-100 text-sm font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] transform hover:scale-105">
                     Sign In
                 </Link>
             )}

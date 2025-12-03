@@ -34,7 +34,7 @@ export const MOCK_POLITICAL_CONTENT: Movie[] = [
     genre: ['Live Event', 'Debate'],
     rating: 'TV-14',
     type: 'live',
-    channelName: 'Yutify News',
+    channelName: 'Medai News',
     views: '12M views'
   },
   {
