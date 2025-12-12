@@ -1,5 +1,5 @@
 
-# StreamStar - MERN Stack OTT Clone
+# Medai - The Future of News (MERN Stack)
 
 ## Setup Instructions
 
@@ -20,7 +20,14 @@
 2. The `services/api.ts` file points to `http://localhost:5000/api`.
 3. If the backend is running, the app will switch from mock data to real data automatically.
 
-### 3. Features
+### 3. Backend Features
 - **Authentication**: JWT Login/Signup.
 - **Streaming**: Partial content (Range) requests for smooth video playback.
-- **Database**: MongoDB storage for User and Video metadata.
+- **Search**: `/api/videos/search?q=query`
+- **User Features**:
+  - Watchlist: Add/Remove/Get personal watchlist.
+  - History: Track video progress.
+- **Social**:
+  - Likes: Toggle likes on videos.
+  - Comments: Read and write comments on videos.
+- **Database**: MongoDB storage for User, Video, and Comment data.

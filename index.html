@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Medai-Nxt Gen New</title>
+    <title>Medai | Unfiltered News</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -32,7 +32,7 @@
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #dc2626; /* Political Red Hover */
+        background: #dc2626; /* Medai Red Hover */
       }
 
       /* Hide scrollbar util */
@@ -61,7 +61,8 @@
         100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
       }
 
-      @keyframes political-gradient {
+      /* Red/White Brand Gradient */
+      @keyframes brand-gradient {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
@@ -77,6 +78,11 @@
 
       .animate-pulse-red {
         animation: pulse-red 2s infinite;
+      }
+
+      .animate-brand-gradient {
+        background-size: 200% 200%;
+        animation: brand-gradient 8s ease infinite;
       }
       
       .skeleton-shimmer {
@@ -107,15 +113,31 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
       
-      .political-gradient-text {
-        background: linear-gradient(to right, #3b82f6, #ef4444);
+      .medai-gradient-text {
+        background: linear-gradient(to right, #ffffff, #ef4444);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+      
+      .hover-glow:hover {
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+      }
     </style>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "axios": "https://aistudiocdn.com/axios@^1.13.2"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

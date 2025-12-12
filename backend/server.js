@@ -15,6 +15,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from uploads directory
+// This allows uploaded videos and thumbnails to be accessed via http://localhost:5000/uploads/filename
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Database Connection
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/streamstar', {
     useNewUrlParser: true,
@@ -26,16 +30,29 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/streamstar'
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/videos', require('./routes/videos'));
+app.use('/api/user', require('./routes/user'));
+app.use('/api/admin', require('./routes/admin'));
+app.use('/api/playlists', require('./routes/playlists'));
+app.use('/api/reports', require('./routes/reports'));
+app.use('/api/studio', require('./routes/studio'));
+app.use('/api/payment', require('./routes/payment'));
+app.use('/api/comments', require('./routes/comments'));
+app.use('/api/community', require('./routes/community'));
+app.use('/api/upload', require('./routes/upload'));
+app.use('/api/series', require('./routes/series'));
 
-// Video Streaming Endpoint
+// Video Streaming Endpoint (Range Requests)
 app.get('/api/stream/:filename', (req, res) => {
     const fileName = req.params.filename;
-    // In production, this would point to S3 or a dedicated storage volume
+    // Handle external URLs or local files
+    if (fileName.startsWith('http')) {
+        return res.redirect(fileName);
+    }
+
     const filePath = path.join(__dirname, 'uploads', fileName);
     
     // Check if file exists, if not serve sample for demo purposes
     if (!fs.existsSync(filePath)) {
-        // Fallback for demo: Redirect to public sample URL if local file missing
         return res.redirect('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');
     }
 

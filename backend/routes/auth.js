@@ -49,6 +49,24 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// @route POST /api/auth/forgot-password
+// @desc Mock password reset
+router.post('/forgot-password', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+        
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        
+        // In production, send real email with nodemailer
+        console.log(`Password reset link sent to: ${email}`);
+        
+        res.json({ message: 'Password reset link sent to your email.' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // @route GET /api/auth/me
 router.get('/me', protect, async (req, res) => {
     res.json(req.user);
